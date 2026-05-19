@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareTrack Clinic - Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>CareTrack Clinic</h2>
+      <nav>
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a class="admin-only" href="doctors.html">Doctors</a>
+        <a href="patients.html">Patients</a>
+        <a href="diagnosis.html">Diagnoses</a>
+        <a href="index.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Welcome back to CareTrack Clinic</p>
+        </div>
+        <span class="role-badge" id="roleBadge">Role: Administrator</span>
+      </header>
+
+      <main class="content">
+        <section class="cards-grid">
+          <article class="card stat-card">
+            <h3>Total Doctors</h3>
+            <p class="stat-number">12</p>
+            <p class="card-hint">Active in departments</p>
+          </article>
+          <article class="card stat-card">
+            <h3>Total Patients</h3>
+            <p class="stat-number">94</p>
+            <p class="card-hint">Current registered records</p>
+          </article>
+          <article class="card stat-card">
+            <h3>Total Diagnoses</h3>
+            <p class="stat-number">48</p>
+            <p class="card-hint">Linked to patient profiles</p>
+          </article>
+          <article class="card stat-card">
+            <h3>Today Appointments</h3>
+            <p class="stat-number">27</p>
+            <p class="card-hint">8 pending confirmations</p>
+          </article>
+        </section>
+
+        <section class="chart-grid">
+          <article class="card">
+            <h3>Weekly Visits Trend</h3>
+            <div class="chart-box">
+              <canvas id="visitsLineChart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Diagnoses By Type</h3>
+            <div class="chart-box">
+              <canvas id="diagnosisChart"></canvas>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Department Workload</h3>
+            <div class="chart-box">
+              <canvas id="departmentBarChart"></canvas>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <h3>System Statistics</h3>
+          <div class="progress-list">
+            <div class="progress-item">
+              <p>Patient data completion</p>
+              <div class="progress-track"><span style="width: 82%"></span></div>
+            </div>
+            <div class="progress-item">
+              <p>Diagnosis records reviewed</p>
+              <div class="progress-track"><span style="width: 71%"></span></div>
+            </div>
+            <div class="progress-item">
+              <p>Follow-up tasks closed</p>
+              <div class="progress-track"><span style="width: 64%"></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card admin-only">
+          <h3>Recent Activity</h3>
+          <ul class="activity-list">
+            <li>Reception created patient profile: P-111</li>
+            <li>Dr. Nilufar updated diagnosis for P-102</li>
+            <li>Admin added new doctor in Pediatrics</li>
+            <li>Clinician reviewed flu case history report</li>
+          </ul>
+        </section>
+
+        <section class="card clinician-only">
+          <h3>Clinical Updates</h3>
+          <ul class="activity-list">
+            <li>3 patients need diagnosis follow-up this week</li>
+            <li>2 lab reports are waiting for clinician review</li>
+            <li>Cardiology ward requested patient summary</li>
+          </ul>
+        </section>
+
+        <section class="card reception-only">
+          <h3>Reception Tasks</h3>
+          <ul class="activity-list">
+            <li>New registrations waiting: 4</li>
+            <li>Doctor schedule checks for tomorrow</li>
+            <li>Confirm phone numbers for 6 returning patients</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Quick Notes</h3>
+          <p class="muted-line">This dashboard is frontend demo for CareTrack Clinic assignment.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

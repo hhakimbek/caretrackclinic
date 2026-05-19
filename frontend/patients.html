@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareTrack Clinic - Patients</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>CareTrack Clinic</h2>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="admin-only" href="doctors.html">Doctors</a>
+        <a class="active" href="patients.html">Patients</a>
+        <a href="diagnosis.html">Diagnoses</a>
+        <a href="index.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div>
+          <h1>Patients Management</h1>
+          <p>Patient records with assigned doctor</p>
+        </div>
+        <button class="btn btn-primary can-add-patient" data-open-modal="patientModal">Add Patient</button>
+      </header>
+
+      <main class="content two-columns">
+        <section class="card">
+          <div class="section-head">
+            <h3>Patient List</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Date Of Birth</th>
+                  <th>Gender</th>
+                  <th>Assigned Doctor</th>
+                </tr>
+              </thead>
+              <tbody id="patientsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="card profile-card">
+          <h3>Patient Profile</h3>
+          <p><strong>ID:</strong> <span id="profileId">-</span></p>
+          <p><strong>Name:</strong> <span id="profileName">-</span></p>
+          <p><strong>Date Of Birth:</strong> <span id="profileAge">-</span></p>
+          <p><strong>Gender:</strong> <span id="profileGender">-</span></p>
+          <p><strong>Assigned Doctor:</strong> <span id="profileDoctor">-</span></p>
+          <p><strong>Last Diagnosis:</strong> <span id="profileDiagnosis">No diagnosis endpoint</span></p>
+          <p><strong>Phone:</strong> <span id="profilePhone">-</span></p>
+          <button class="btn btn-outline can-edit-patient" data-open-modal="editPatientModal">Edit Profile</button>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal can-add-patient" id="patientModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Patient</h3>
+        <button class="close-btn" data-close-modal>&times;</button>
+      </div>
+      <form class="simple-form">
+        <label for="patientFullName">Full Name</label>
+        <input id="patientFullName" type="text" placeholder="Patient name">
+
+        <label for="patientAge">Date Of Birth</label>
+        <input id="patientAge" type="date">
+
+        <label for="patientGender">Gender</label>
+        <select id="patientGender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+        <label for="assignedDoctor">Assigned Doctor</label>
+        <select id="assignedDoctor"></select>
+
+        <label for="patientPhone">Phone</label>
+        <input id="patientPhone" type="text" placeholder="998901234567">
+
+        <button id="savePatientBtn" type="button" class="btn btn-primary">Save Patient</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal can-edit-patient" id="editPatientModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Patient</h3>
+        <button class="close-btn" data-close-modal>&times;</button>
+      </div>
+      <form class="simple-form">
+        <label for="editPatientName">Full Name</label>
+        <input id="editPatientName" type="text" placeholder="Patient name">
+
+        <label for="editPatientAge">Date Of Birth</label>
+        <input id="editPatientAge" type="date">
+
+        <label for="editPatientGender">Gender</label>
+        <select id="editPatientGender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+        <label for="editAssignedDoctor">Assigned Doctor</label>
+        <select id="editAssignedDoctor"></select>
+
+        <label for="editPatientPhone">Phone</label>
+        <input id="editPatientPhone" type="text" placeholder="998901234567">
+
+        <button id="updatePatientBtn" type="button" class="btn btn-primary">Update Patient</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

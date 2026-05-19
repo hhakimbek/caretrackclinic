@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareTrack Clinic - Doctors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>CareTrack Clinic</h2>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active admin-only" href="doctors.html">Doctors</a>
+        <a href="patients.html">Patients</a>
+        <a href="diagnosis.html">Diagnoses</a>
+        <a href="index.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div>
+          <h1>Doctors Management</h1>
+          <p>Manage doctor records</p>
+        </div>
+        <button class="btn btn-primary admin-only" data-open-modal="doctorModal">Add Doctor</button>
+      </header>
+
+      <main class="content">
+        <section class="card admin-only">
+          <div class="section-head">
+            <h3>Doctors List</h3>
+            <div class="toolbar">
+              <input type="text" placeholder="Search doctor...">
+              <select>
+                <option>All Departments</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Pediatrics</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Phone</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="doctorsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card non-admin-only">
+          <h3>Restricted Access</h3>
+          <p class="muted-line">Only Administrator can manage doctor CRUD records in this demo.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal admin-only" id="doctorModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Doctor</h3>
+        <button class="close-btn" data-close-modal>&times;</button>
+      </div>
+      <form class="simple-form">
+        <label for="doctorName">Full Name</label>
+        <input id="doctorName" type="text" placeholder="Doctor name">
+
+        <label for="doctorSpec">Department</label>
+        <select id="doctorSpec">
+          <option>Cardiology</option>
+          <option>Neurology</option>
+          <option>Pediatrics</option>
+        </select>
+
+        <label for="doctorPhone">Phone</label>
+        <input id="doctorPhone" type="text" placeholder="Phone number">
+
+        <label for="doctorStatus">Status</label>
+        <select id="doctorStatus">
+          <option>Active</option>
+          <option>On Leave</option>
+        </select>
+
+        <button id="saveDoctorBtn" type="button" class="btn btn-primary">Save Doctor</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal admin-only" id="editDoctorModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Doctor</h3>
+        <button class="close-btn" data-close-modal>&times;</button>
+      </div>
+      <form class="simple-form">
+        <label for="editDoctorName">Full Name</label>
+        <input id="editDoctorName" type="text" placeholder="Doctor name">
+
+        <label for="editDoctorSpec">Department</label>
+        <select id="editDoctorSpec">
+          <option>Cardiology</option>
+          <option>Neurology</option>
+          <option>Pediatrics</option>
+          <option>ENT</option>
+        </select>
+
+        <label for="editDoctorPhone">Phone</label>
+        <input id="editDoctorPhone" type="text" placeholder="Phone number">
+
+        <label for="editDoctorStatus">Status</label>
+        <select id="editDoctorStatus">
+          <option>Active</option>
+          <option>On Leave</option>
+        </select>
+
+        <button id="updateDoctorBtn" type="button" class="btn btn-primary">Update Doctor</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

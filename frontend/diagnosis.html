@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareTrack Clinic - Diagnoses</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>CareTrack Clinic</h2>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="admin-only" href="doctors.html">Doctors</a>
+        <a href="patients.html">Patients</a>
+        <a class="active" href="diagnosis.html">Diagnoses</a>
+        <a href="index.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <div>
+          <h1>Diagnosis Management</h1>
+          <p>Manage disease and diagnosis records</p>
+        </div>
+        <button class="btn btn-primary can-edit-diagnosis" data-open-modal="diagnosisModal">Add Diagnosis</button>
+      </header>
+
+      <main class="content">
+        <section class="card">
+          <div class="section-head">
+            <h3>Diagnosis Records</h3>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Patient</th>
+                  <th>Doctor</th>
+                  <th>ICD Code</th>
+                  <th>Diagnosis</th>
+                  <th>Severity</th>
+                </tr>
+              </thead>
+              <tbody id="diagnosisTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal can-edit-diagnosis" id="diagnosisModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Diagnosis</h3>
+        <button class="close-btn" data-close-modal>&times;</button>
+      </div>
+      <form class="simple-form">
+        <label for="diagnosisPatient">Patient</label>
+        <select id="diagnosisPatient"></select>
+
+        <label for="diagnosisDoctor">Doctor</label>
+        <select id="diagnosisDoctor"></select>
+
+        <label for="diagnosisIcd">ICD Code</label>
+        <input id="diagnosisIcd" type="text" placeholder="G43">
+
+        <label for="diagnosisName">Diagnosis Name</label>
+        <input id="diagnosisName" type="text" placeholder="Migraine">
+
+        <label for="diagnosisSeverity">Severity</label>
+        <select id="diagnosisSeverity">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+
+        <label for="diagnosisNotes">Notes</label>
+        <input id="diagnosisNotes" type="text" placeholder="Short note">
+
+        <button id="saveDiagnosisBtn" type="button" class="btn btn-primary">Save Diagnosis</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
